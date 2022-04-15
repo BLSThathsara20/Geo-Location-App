@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import GMap from '@/components/home/Gmap'
+import GMap from '@/components/home/GMap'
 import Signup from '@/components/auth/Signup'
 import Login from '@/components/auth/Login'
 import ViewProfile from '@/components/profile/ViewProfile'
@@ -9,6 +9,7 @@ import firebase from 'firebase/compat/app'
 Vue.use(Router)
 
 const router =  new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
