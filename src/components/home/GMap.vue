@@ -25,6 +25,25 @@ import db from '@/firebase/init'
                     minZoom: 3,
                     streetViewControl: false
                 })
+
+                db.collection('users').get().then(users => {
+                    users.docs.forEach(doc => {
+                        let data = doc.data()
+                        if(data.Geolocation){
+                            let marker = new google.maps.Marker({
+                                position: {
+                                    lat: data.Geolocation.lat, 
+                                    lng: data.Geolocation.lng
+                                    },
+                                    map
+                            })
+                            //add click event to Marker
+                            marker.addListener('click', () => {
+                                console.log(doc.id)
+                            })
+                        }
+                    })
+                })
             }
         },
         mounted(){
