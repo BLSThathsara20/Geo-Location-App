@@ -8,7 +8,6 @@
                     <li v-if="!user"><router-link :to=" {name : 'Login'}">Login</router-link></li>
                     <li v-if="user" id="user-mail"><a>{{user.email}}</a></li>
                     <li v-if="user"><a @click="logout">Logout</a></li>
-                    <a id="user-mail-responsive" class="grey-text text-darken-2">{{user.email}}</a>
                 </ul>
             </div>
         </nav>
@@ -49,16 +48,6 @@ import firebase from 'firebase/compat/app'
 <style>
     @media screen and (max-width: 760px) {
     #user-mail a{
-        display: none;
-    }
-    #user-mail-responsive{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-}
-    @media screen and (min-width: 760px) {
-    #user-mail-responsive{
         display: none;
     }
 }
